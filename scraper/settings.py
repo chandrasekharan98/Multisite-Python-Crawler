@@ -25,8 +25,8 @@ FEED_EXPORT_FIELDS = ["page","content"]
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-# LOG_ENABLED = False
-# LOG_FILE = 'quotes.log'
+LOG_ENABLED = True
+LOG_FILE = 'crawlLog.log'
 
 ITEM_PIPELINES = {
 	'scraper.pipelines.JsonPipeline': 300,
