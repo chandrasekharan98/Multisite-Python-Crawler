@@ -13,16 +13,13 @@ This multisite crawler gets the paragraph tag text and outputs a JSON file of th
 {
 	"pages" : [
 		{
-			"page" : "...."
+			"page" : "....",
 			"content" : "...."
 		},
 		{
-			"page" : "..."
+			"page" : "...",
 			"content" : "..."
 		}
-	.
-	.
-	.
 	]
 }
 ```
