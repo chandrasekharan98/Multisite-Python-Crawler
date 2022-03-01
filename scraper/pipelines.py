@@ -30,6 +30,7 @@ import json
 import os
 
 class JsonPipeline(object):
+	processedItemCount = 0
 
 	def open_spider(self, spider):
 		self.file = open('crawledData.json', 'w', encoding = "utf-8")
@@ -40,6 +41,7 @@ class JsonPipeline(object):
 		self.file.seek(self.file.tell() - 3, os.SEEK_SET)
 		self.file.write(" \n\t]\n}")
 		self.file.close()
+		print("Crawled and parsed {} pages.".format(self.processedItemCount))
 
 	def process_item(self, item, spider):
 		line = json.dumps(
@@ -51,4 +53,5 @@ class JsonPipeline(object):
 		) + ",\n"
 
 		self.file.write(line)
+		self.processedItemCount += 1
 		return item

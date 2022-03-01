@@ -30,7 +30,7 @@ def CleanTag(textToClean):
 
 
 
-class MySpider(CrawlSpider):
+class MySpider(scrapy.Spider):
 	name = "mySpider"
 	rule = (Rule(LinkExtractor(canonicalize=True, unique=True), callback="parse", follow=True))
 
@@ -43,13 +43,12 @@ class MySpider(CrawlSpider):
 
 #Function to generate links from a starting URL
 	def parse(self, response):
+		# self.logger.info('Crawling URL : %s', response.url)
 		allLinks = []
 		allLinks.append(response.request.url)
 		links = LinkExtractor(canonicalize=True, unique=True).extract_links(response)
-		print(links[1])
-		items = {}
+		print('Crawling URL :', response.url)
 		for link in links:
-			is_allowed = False
 			for allowed_domain in self.allowed_domains:
 				if allowed_domain in link.url:
 					allLinks.append(link.url)

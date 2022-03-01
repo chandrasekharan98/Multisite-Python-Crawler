@@ -27,6 +27,7 @@ ROBOTSTXT_OBEY = True
 
 LOG_ENABLED = True
 LOG_FILE = 'crawlLog.log'
+LOG_FILE_APPEND = False
 
 ITEM_PIPELINES = {
 	'scraper.pipelines.JsonPipeline': 300,
